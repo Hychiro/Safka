@@ -94,7 +94,7 @@ def bandpass_conv_corrigido(
     nH = np.arange(NH) - (NH - 1) / 2
     fc = high_cut / fs
 
-    hlpf = 2 * fc * np.sinc(2 * fc * nH)
+    hlpf = np.sinc(2 * fc * nH)
     hlpf *= winH
     hlpf /= np.sum(hlpf)
 
@@ -105,7 +105,7 @@ def bandpass_conv_corrigido(
     nL = np.arange(NL) - (NL - 1) / 2
     fc = low_cut / fs
     
-    hhpf = 2 * fc * np.sinc(2 * fc * nL)
+    hhpf = np.sinc(2 * fc * nL)
     hhpf *= winL
     hhpf /= np.sum(hhpf)
 
